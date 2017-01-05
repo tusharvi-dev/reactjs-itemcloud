@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root to: "site#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :items, only: [:index, :create, :destroy, :update]
+    end
+  end
 end
